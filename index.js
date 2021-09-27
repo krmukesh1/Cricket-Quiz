@@ -65,10 +65,7 @@ function welcomeUser() {
 
 function askQuestion(question, answer) {
   let userAnswer = readlineSync.question(question);
-  if (
-    userAnswer.toUpperCase().replace(" ", "") ===
-    answer.toUpperCase().replace(" ", "")
-  ) {
+  if ( userAnswer === answer) {
     score++;
     console.log(chalk.green("\nThat's correct!!"));
   } else {
@@ -79,7 +76,7 @@ function askQuestion(question, answer) {
 function startGame() {
   for (let item = 0; item < questions.length; item++) {
     askQuestion(questions[item].question, questions[item].answer);
-    console.log("current score : " + chalk.yellow(score) + "\n-----------");
+    console.log("current score : " + chalk.yellow(score));
   }
   highScore[1] = { name: userName, score: score };
 }
